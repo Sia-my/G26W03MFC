@@ -1,6 +1,4 @@
-﻿﻿
-// G26W03MFCView.h: CG26W03MFCView 클래스의 인터페이스
-//
+﻿
 
 #pragma once
 

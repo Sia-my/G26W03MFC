@@ -59,16 +59,16 @@ BOOL CG26W03MFCDoc::OnNewDocument()
 
 void CG26W03MFCDoc::Serialize(CArchive& ar)
 {
-	if (ar.IsStoring())
-	{
-		// TODO: 여기에 저장 코드를 추가합니다.
-		ar << Point;
-	}
-	else
-	{
-		// TODO: 여기에 로딩 코드를 추가합니다.
-		ar >> Point;
-	}
+	//if (ar.IsStoring())
+	//{
+	//	// TODO: 여기에 저장 코드를 추가합니다.
+	//	ar << Point;
+	//}
+	//else
+	//{
+	//	// TODO: 여기에 로딩 코드를 추가합니다.
+	//	ar >> Point;
+	//}
 
 	Points.Serialize(ar);
 }

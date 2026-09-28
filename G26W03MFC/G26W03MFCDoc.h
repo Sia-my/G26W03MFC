@@ -1,21 +1,16 @@
-﻿﻿
-// G26W03MFCDoc.h: CG26W03MFCDoc 클래스의 인터페이스
-//
-
-
-#pragma once
+﻿#pragma once
 
 
 class CG26W03MFCDoc : public CDocument
 {
-	protected:
-		CPoint Point = CPoint(-100, -100);
-	public:
-		CPoint GetPoint() { return Point; }
-		void SetPoint(CPoint p) { 
-			Point = p; 
-			SetModifiedFlag();
-		}
+	//protected:
+	//	CPoint Point = CPoint(-100, -100);
+	//public:
+	//	CPoint GetPoint() { return Point; }
+	//	void SetPoint(CPoint p) { 
+	//		Point = p; 
+	//		SetModifiedFlag();
+	//	}
 
 protected:
 	CArray<CPoint, CPoint> Points;
