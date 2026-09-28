@@ -1,4 +1,4 @@
-﻿
+﻿﻿
 // G26W03MFCDoc.cpp: CG26W03MFCDoc 클래스의 구현
 //
 
@@ -45,6 +45,9 @@ BOOL CG26W03MFCDoc::OnNewDocument()
 
 	// TODO: 여기에 재초기화 코드를 추가합니다.
 	// SDI 문서는 이 문서를 다시 사용합니다.
+	//Point = CPoint(-100, -100);
+
+	Points.RemoveAll();
 
 	return TRUE;
 }
@@ -59,11 +62,15 @@ void CG26W03MFCDoc::Serialize(CArchive& ar)
 	if (ar.IsStoring())
 	{
 		// TODO: 여기에 저장 코드를 추가합니다.
+		ar << Point;
 	}
 	else
 	{
 		// TODO: 여기에 로딩 코드를 추가합니다.
+		ar >> Point;
 	}
+
+	Points.Serialize(ar);
 }
 
 #ifdef SHARED_HANDLERS
@@ -77,7 +84,7 @@ void CG26W03MFCDoc::OnDrawThumbnail(CDC& dc, LPRECT lprcBounds)
 	CString strText = _T("TODO: implement thumbnail drawing here");
 	LOGFONT lf;
 
-	CFont* pDefaultGUIFont = CFont::FromHandle((HFONT) GetStockObject(DEFAULT_GUI_FONT));
+	CFont* pDefaultGUIFont = CFont::FromHandle((HFONT)GetStockObject(DEFAULT_GUI_FONT));
 	pDefaultGUIFont->GetLogFont(&lf);
 	lf.lfHeight = 36;
 
@@ -108,7 +115,7 @@ void CG26W03MFCDoc::SetSearchContent(const CString& value)
 	}
 	else
 	{
-		CMFCFilterChunkValueImpl *pChunk = nullptr;
+		CMFCFilterChunkValueImpl* pChunk = nullptr;
 		ATLTRY(pChunk = new CMFCFilterChunkValueImpl);
 		if (pChunk != nullptr)
 		{
